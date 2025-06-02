@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atualizar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="container">
+        <div class="form-section">
+            <h2>Atualizar {{personagens[id-1].nome}}</h2>
+            <form action="/edit/{{ id }}" method="post" id="edit" name="atualizar">
+
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" value="{{personagens[id-1].nome}}" required>
+
+                <label for="idade">Idade:</label>
+                <input type="number" id="idade" name="idade" min="0" max="99" value="{{personagens[id-1].idade}}" required>
+
+                <label for="formacao">Formação:</label>
+                <input type="text" id="formacao" name="formacao" value="{{personagens[id-1].formacao}}" required>
+
+                <label for="emprego">Emprego:</label>
+                <input type="text" id="emprego" name="emprego" value="{{personagens[id-1].emprego}}" required>
+
+                <button type="submit" class="btn-add">Atualizar</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

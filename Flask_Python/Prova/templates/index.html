@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário e Lista</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="container">
+        <div class="form-section">
+            <h2>Adicionar Personagem</h2>
+            <form action="/" method="post" id="personagens" name="personagens">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required>
+
+                <label for="idade">Idade:</label>
+                <input type="number" id="idade" name="idade" min="0" max="99" required>
+
+                <label for="formacao">Formação:</label>
+                <input type="text" id="formacao" name="formacao" required>
+
+                <label for="emprego">Emprego:</label>
+                <input type="text" id="emprego" name="emprego" required>
+
+                <button type="submit" class="btn-add">Adicionar</button>
+            </form>
+        </div>
+
+        <div class="table-section">
+            <h2>Lista de Personagens</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Idade</th>
+                        <th>Formação</th>
+                        <th>Emprego</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="itemList">
+                    {% for personagem in personagens %}
+                    <tr>
+                        <td>{{personagem.nome}}</td>
+                        <td>{{personagem.idade}}</td>
+                        <td>{{personagem.formacao}}</td>
+                        <td>{{personagem.emprego}}</td>
+                        <td>
+                            <div class="actions">
+                                <a class="btn-edit" href="/edit/{{personagem.id}}"><i class="fas fa-pencil-alt"></i></a>
+                                <a class="btn-delete" href="/delete/{{personagem.id}}"><i class="fas fa-trash-alt"></i></a>
+                            </div>
+                        </td>
+                    </tr>
+                    {%endfor%}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

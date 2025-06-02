@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca</title>
+    <link rel="stylesheet" href={{url_for('static', filename='styles.css' )}}>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Bem vindo {{session["usuario"]}}, aqui esta sua Agenda de livros!</h2>
+        <p>Total de livros: {{ total_livros }}</p>
+        {% with messages = get_flashed_messages(with_categories=True) %}
+        {% if messages %}
+        <div class="flash-messages"> <!-- Div que envolve todas as mensagens flash -->
+            {% for category, message in messages %}
+            <div class="alert alert-{{ category }}">{{ message }}</div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% endwith %}
+        <ul>
+            {% for livro in livros %}
+            <li>
+                <strong>Titulo: {{ livro.titulo }}</strong><br>
+                <strong>Autor: {{ livro.autor }}</strong><br>
+                <strong>Data de publicação: {{ livro.ano_publicação }}</strong><br><br>
+            </li>
+            {% endfor %}
+        </ul>
+
+        <h2>Registre aqui seu livro</h2>
+        <form action="{{ url_for('blueprint_cool.adicionar_livro') }}" method="post">
+            <label for="titulo"><h3>Título:</h3></label>
+            <input type="text" name="titulo" placeholder="Digite aqui o nome do Titulo do Livro"><br>
+
+            <label for="descricao"><h3>Autor:</h3></label>
+            <input type="autor" name="autor" placeholder="Digite aqui o nome do autor"><br>
+
+            <label for="vencimento"><h3>Data de Vencimento:</h3></label>
+            <input type="date" name="ano_publicação" placeholder="EX:dd/mm/yy"><br>
+
+            <button type="submit">Adicionar Livro</button>
+        </form>
+
+        <p><a href="{{ url_for('blueprint_cool.logout') }}"><button>Logout</button></a></p>
+        <p><a href=""><button>Editar livro</button></a></p>
+        <p><a href="{{ url_for('blueprint_cool.limpar') }}"><button>Limpar Catalogo</button></a></p>
+        
+    </div>
+</body>
+
+</html>

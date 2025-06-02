@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+</head>
+<body>
+    <h1>Lista de Tarefas muito cool!</h1>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWQ8aF982ObpYjfZPuXdZJElKvb2_KPYJ_1Q&s" alt="Cinema" width="640" height="480">
+    <form action="/add" method="post">
+        <input type="text" name="descricao" placeholder="Nova Tarefa" required>
+        <button type="submit">Add</button>
+    </form>
+    <ul>
+        {% for tarefa in tarefas %}
+        <li>
+            {{ tarefa.descricao }} -- 
+            {% if tarefa.completo %}
+                Completo
+            {% else %}
+                Pendente... 
+                <form action="/complete/{{ tarefa.id }}" method="post" style="display:inline;">
+                    <button type="submit">Marcar como Completo</button>
+                </form>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

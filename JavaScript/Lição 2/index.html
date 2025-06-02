@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="PT-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparação de Populações</title>
+    <!-- Inserir a folha de estilo -->
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- Passo 7.4.2: Título -->
+        <h1>Comparação de Populações</h1>
+        <!-- Passo 7.4.3: Formulário -->
+        <form id="formCalculo">
+            <!-- Passo 7.4.4: Inputs -->
+            <div class="inputs">
+                <!-- Passo 7.4.5: Label para População do país A -->
+                <label for="popA">População do país A:</label>
+                <!-- Passo 7.4.6: Input para População do país A -->
+                <input type="number" id="popA" placeholder="População do país A" required>
+                <!-- Passo 7.4.7: Label para Taxa de Crescimento do país A -->
+                <label for="taxaA">Taxa de Crescimento anual do país A (%):</label>
+                <!-- Passo 7.4.8: Input para Taxa de Crescimento do país A -->
+                <input type="number" id="taxaA" placeholder="Taxa de Crescimento do país A" required>
+                <!-- Passo 7.4.9: Label para População do país B -->
+                <label for="popB">População do país B:</label>
+                <!-- Passo 7.4.10: Input para População do país B -->
+                <input type="number" id="popB" placeholder="População do país B" required>
+                <!-- Passo 7.4.11: Label para Taxa de Crescimento do país B -->
+                <label for="taxaB">Taxa de Crescimento anual do país B (%):</label>
+                <!-- Passo 7.4.12: Input para Taxa de Crescimento do país B -->
+                <input type="number" id="taxaB" placeholder="Taxa de Crescimento do país B" required>
+            </div> <!-- Fim da div "inputs" -->
+            <!-- Passo 7.4.14: Botão Calcular -->
+            <button type="button" class="button" onclick="calcularAnos()">Calcular</button>
+            <!-- Passo 7.4.15: Quebras de linha -->
+            <br><br><br>
+            <!-- Passo 7.4.16: Botão Limpar -->
+            <button type="button" class="button" onclick="limparCampos()">Limpar</button>
+        </form> <!-- Fim do formulário -->
+        <!-- Passo 7.4.18: Resultado -->
+        <div id="resultado"></div>
+    </div> <!-- Fim da div "container" -->
+
+</body>
+
+</html>

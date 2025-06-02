@@ -1,0 +1,41 @@
+"João Silva":{
+	"Projeto principal":{
+		"nome":"Automação de Processos",
+		"Estado":"Andamento",
+		"Tarefa":"analisar processos internos",
+		"inicio":"01/07/2024"  },
+	"Subprojeto":{
+		"nome":"Desenvolvimento de API",
+		"Estado":"Andamento",
+		"Tarefas":{
+					"t1":{"nomet":"criar endpoints",
+						"responsavel":"Maria Souza"
+						 },
+					"t2":{"nomet":"revisar codigo",
+						  "responsavel":"Maria Souza",
+						 "entrega":"10/08/2024"}
+				 }
+	"e-mail de contato":"joao.silva@example.com"	
+	}
+	
+	
+"Maria Souza":{
+	"Projeto principal":{
+		"nome":"Desenvolvimento de API",
+		"Estado":"concluido",
+		"Tarefa":"testar endpoints",
+		"inicio":"15/07/2024"  },
+	"Projeto atual":{
+		"nome":"Integracao de Sistemas",
+		"Estado":"Andamento",
+		"Tarefa":{
+					"t1":{"nomet":"configurar o servidor",
+						"responsavel":"João Silva"
+						 },
+					"t2":{"nomet":"documententar a API",
+						  "responsavel":"Maria Souza",
+						  "entrega":"20/08/2024"
+						 }
+				 }
+	"e-mail de contato":"maria.souza@example.com"	
+	}
